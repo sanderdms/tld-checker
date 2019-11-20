@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TLD checker</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <section class="mt-5 mx-4">
+        <div class="container mx-auto">
+            <form action="/" id="inputform">
+            <div class="flex">    
+            <input type="text" placeholder="name" class="bg-gray-200 border-2 border-gray-200 w-10/12 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white" id="userinput">
+            <input type="submit"  class="w-2/12 py-4 text-gray-900 bg-gray-300" value="Search">
+            </div>
+            </form>
+        </div>
+    </section>
+    <section class="mt-3 mx-4">
+            <template id="result-item">
+                    <div class="flex justify-between mt-5 p-5 bg-gray-300">
+                            <div id="tld w-1/3">.com</div>
+                            <div id="tld w-1/3">€9</div>
+                            <div id="tld w-1/3">
+                            <button>order</button>
+                            </div>
+                        </div>
+            </template>
+        <div class="container mx-auto" id="results">
+        </div>
+    </section>
+    <script src="./js/app.js"></script>
+</body>
+</html>

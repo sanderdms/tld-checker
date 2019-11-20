@@ -1,0 +1,27 @@
+{
+  "name": "tld-checker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "https://developer.godaddy.com/doc/endpoint/domains#/v1/tlds https://support.combell.com/en/how-do-i-use-e-resellers-api/689",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanderdms/tld-checker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanderdms/tld-checker/issues"
+  },
+  "homepage": "https://github.com/sanderdms/tld-checker#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "lite-server": "^2.5.4",
+    "tailwindcss": "^1.1.3"
+  }
+}
