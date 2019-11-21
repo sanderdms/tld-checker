@@ -10,7 +10,8 @@ app.use(morgan('tiny'));
 app.use(cors());
 
 app.get("/lookup/:name", (req, res) =>  {
-    const url="https://api.dev.name.com/v4/domains:search";
+    
+    const url= process.env.NAME_COM_ENDPOINT || "https://api.dev.name.com/v4/domains:search";
     const username=process.env.NAME_COM_API_USER;
     const password=process.env.NAME_COM_API_TOKEN;
     const headerstr = 'Basic ' + Buffer.from(username + ":" + password).toString('base64');

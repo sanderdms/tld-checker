@@ -10,33 +10,31 @@
 <body>
     <section class="mt-5 mx-4">
         <div class="container mx-auto">
-            <form action="/" id="inputform">
+            <form action="/" id="inputform" autocomplete="off">
             <div class="flex">    
-            <input type="text" placeholder="name" class="bg-gray-200 border-2 border-gray-200 w-10/12 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white" id="userinput">
-            <input type="submit"  class="w-2/12 py-4 text-gray-900 bg-gray-300" value="Search">
+            <input tabindex="1" autofocus type="text" placeholder="name" class="text-2xl bg-gray-200 border-2 border-gray-400 w-10/12 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white" id="userinput">
+            <input type="submit"  class="w-2/12 py-4 text-gray-900 bg-gray-400 text-3xl cursor-pointer" value=".">
             </div>
             </form>
         </div>
     </section>
     <section class="mt-3 mx-4">
             <template id="result-item-template">
-                    <div class="flex justify-between mt-5 p-5 bg-gray-300">
-                            <div id="sld">example</div>
-                            <div id="tld">.com</div>
-                            <div id="price">€9</div>
-                            <div id="button">
-                            <button>order</button>
-                            </div>
+                    <div class="flex mt-5 p-5 bg-gray-300 items-center">
+                            <div id="sld" class="w-4/12 break-words mr-3">example</div>
+                            <div id="tld" class="text-3xl bg-gray-600 p-3 w-3/12 mr-4 text-center">.com</div>
+                            <div id="price" class="w-3/12 text-center">€9</div>
+                            <a id="button" class="text-center bg-gray-400 p-5 w-2/12" href="!#">order</a>
                         </div>
             </template>
             <template id="loading-state">
-                <div class="loading flex justify-between mt-5 p-5 bg-gray-300">&nbsp;</div>
+                <div class="loading flex justify-between mt-5 p-5 bg-gray-300 text-3xl">&nbsp;</div>
             </template>
             <template id="empty-state">
                 <div class="w-full h-64 p-5 text-center flex justify-center items-center">
                     <div>
                             <p>Message</p>
-                            <p>Please try again</p>
+                            
                     </div>
                   
                 </div>
@@ -47,9 +45,19 @@
                                 <p>Javascript is required</p>
                         </div>
                 </noscript>
-                <div class="w-full h-64 p-5 text-center flex justify-center items-center bg-gray-200">
-                        <p>Startscreen state</p>
+                <div class="w-full p-6 text-center flex justify-center items-center bg-gray-200 border-2 border-gray-400" style="height:80vh">
+                   <div>
+                        <h1 class="text-5xl"></h1>
+                        <p class="text-3xl">Enter your desired name above to find available exact match <abbr title="Top Level Domains">TLDS</abbr> 🤯</p>
+                        <blockquote class="mt-4 italic">
+                            <p id="quote">Walking on water and developing software from a specification are easy if both are frozen.</p>
+                            <cite>-- Edward V. Berard</cite>
+                        </blockquote>
+                   </div>
+                   
                 </div>
+             
+                    
         </div>
     </section>
     <script src="./js/app.js"></script>

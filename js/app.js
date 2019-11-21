@@ -43,25 +43,27 @@ const renderEmptyMessageState = (error=false, message=false, clear=false)=>{
 }
 
 
-const filter_NameAvailable = item => (!!item.purchasePrice == true);
+const filter_nameAvailable = item => (!!item.purchasePrice == true);
+const filter_exactName = (item) =>{
+    let a = item.sld.toLowerCase();
+    let b = userInput.value.replace(" ","").trim().toLowerCase();
+    return (a==b) ?true:false
+};
 
 const appendUI = (newItems)=>{
-    const availableDomains = newItems.filter(filter_NameAvailable);
+    const availableDomains = newItems.filter(filter_nameAvailable).filter(filter_exactName);
     const sortByPrice = availableDomains.sort((a, b) => parseFloat(a.purchasePrice) - parseFloat(b.purchasePrice));
     if(sortByPrice.length < 1) {
         renderEmptyMessageState(false, "No results");
     }
     availableDomains.forEach(item=>{
         const newNode = resultsAreaTemplate.content.cloneNode(true);
-        newNode.querySelector("#tld").innerText=item.tld;
+        newNode.querySelector("#tld").innerText="."+item.tld;
         newNode.querySelector("#sld").innerText=item.sld;
         newNode.querySelector("#price").innerText="$"+item.purchasePrice;
         resultsArea.appendChild(newNode);
     })
 }
-
-
-
 
 
 const finishedLookups = [];
@@ -100,3 +102,14 @@ inputForm.addEventListener("submit", (e)=>{
     doUserInput(userInput.value);
     e.preventDefault();
 });
+
+
+
+
+(async()=>{
+
+const quoteRespons = await fetch("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json");
+const quote = await quoteRespons.json();
+document.getElementById("quote").innerText=quote.quoteText;
+document.querySelector("cite").innerText="-- "+quote.quoteAuthor;
+})();
