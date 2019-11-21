@@ -15,6 +15,8 @@ Run the API server:
 
 # Todo
 - [ ] Get  renewal prices
+- [ ] Add caching middleware into proxy API
+- [ ] Store previous successful queries in localstorage (only the query not perse results)
 - [ ] Add datasrouces for checking more TLD's
 - [ ] Style / UX
 
