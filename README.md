@@ -1,14 +1,20 @@
-https://developer.godaddy.com/doc/endpoint/domains#/v1/tlds
-https://support.combell.com/en/how-do-i-use-e-resellers-api/689
-
-https://www.icann.org/resources/pages/tlds-2012-02-25-en
-
-explainations: https://www.eurodns.com/domain-extensions/network-domain-registration
-
-
-purpose is to find what domain TLDS are available on an exact given name. And for what price.
-ALso to get information about the main purpose of the TLD. (LBGT stands for inclusion,.. )
-Secondary purpose is to find out available alternatives.
+Purpose is to find what domain TLDS are available on an exact given name. And for what price.
 
 This is not a domain transfer or WHOIS service !!
+
+## Setup API proxy
+An API proxy is required to run this application in devmode.
+Create account https://name.com/account/settings/api
+Create a new .env file using the .env.sample template. Enter API username, key and endpoint in the .env file...
+Run the API server:
+
+    $ cd server
+
+    $npm run dev
+
+
+# Todo
+- [ ] Get  renewal prices
+- [ ] Add datasrouces for checking more TLD's
+- [ ] Style / UX
 
