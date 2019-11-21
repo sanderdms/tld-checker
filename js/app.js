@@ -108,7 +108,7 @@ inputForm.addEventListener("submit", (e)=>{
 
 (async()=>{
 
-const quoteRespons = await fetch("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json");
+const quoteRespons = await fetch("https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json");
 const quote = await quoteRespons.json();
 document.getElementById("quote").innerText=quote.quoteText;
 document.querySelector("cite").innerText="-- "+quote.quoteAuthor;
