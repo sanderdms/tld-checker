@@ -10,28 +10,28 @@ const renderFromTemplate = (templateNode, targetNode, querySelectorValues) => {
     const template = templateNode;
     const target = targetNode;
     const newNode = template.content.cloneNode(true);
-    for (selector of querySelectorValues){
-        switch(selector.method){
+    for (_nodeItem of querySelectorValues){
+        switch(_nodeItem.method){
             case "addClass":
-            newNode.querySelector(selector.selector).classList.add(selector.value);
+            newNode.querySelector(_nodeItem.selector).classList.add(_nodeItem.value);
             break;
             case "removeClass":
-            newNode.querySelector(selector.selector).classList.remove(selector.value);
+            newNode.querySelector(_nodeItem.selector).classList.remove(_nodeItem.value);
             break;
             case "toggleClass":
-            newNode.querySelector(selector.selector).classList.toggle(selector.value);
+            newNode.querySelector(_nodeItem.selector).classList.toggle(_nodeItem.value);
             break;
             case "value":
-            newNode.querySelector(selector.selector).value=selector.value;
+            newNode.querySelector(_nodeItem.selector).value=_nodeItem.value;
             break;
             case "src":
-            newNode.querySelector(selector.selector).src=selector.value;
+            newNode.querySelector(_nodeItem.selector).src=_nodeItem.value;
             break;
             case "innerText":
-            newNode.querySelector(selector.selector).innerText=selector.value;
+            newNode.querySelector(_nodeItem.selector).innerText=_nodeItem.value;
             break;
             default:
-            newNode.querySelector(selector.selector).textContent=selector.value;
+            newNode.querySelector(_nodeItem.selector).textContent=_nodeItem.value;
         }
     }
     target.appendChild(newNode);
@@ -58,7 +58,7 @@ const renderEmptyMessageState = (error=false, message=false, clear=false)=>{
     const nodeMessage = (!message) ? "No results found, start by searching or try another search" : message;
     const nodes = [
         nodeItem("div", "addClass", bgClass),
-        nodeItem("p","innterText",nodeMessage)
+        nodeItem("p","innerText",nodeMessage)
     ];
     renderFromTemplate(template_emptyState, app_view, nodes);
 }
@@ -104,7 +104,7 @@ const getDomainStatus = async (userInput)=>{
         appendUI(callNameAPI_response.results, userInput);
     }
     catch(error){
-        renderEmptyMessageState(true, "Something went wrong", true);
+        renderEmptyMessageState(true, "Something went wrong.", true);
         console.error(error);
     }
 };
@@ -129,8 +129,14 @@ inputForm.addEventListener("submit", (e)=>{
 
 
 (async()=>{
-    const quoteRespons = await fetch("https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json");
-    const quote = await quoteRespons.json();
-    document.getElementById("quote").innerText=quote.quoteText;
-    document.querySelector("cite").innerText="-- "+quote.quoteAuthor;
+   try{
+        const quoteRespons = await fetch("https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json");
+        const quote = await quoteRespons.json();
+        document.getElementById("quote").innerText=quote.quoteText;
+        document.querySelector("cite").innerText="-- "+quote.quoteAuthor;
+    }
+    catch(error){
+        console.error("Quote API is a bit tired at the moment");
+    }
+   
 })();
