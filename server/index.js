@@ -23,7 +23,6 @@ app.get("/lookup/namedotcom/:name", (req, res) =>  {
     const headerstr = 'Basic ' + Buffer.from(username + ":" + password).toString('base64');
 
     const payload = {"keyword":clientInputName};
-    console.log(payload);
 
 
     const data =  JSON.stringify( payload );
