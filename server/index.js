@@ -13,7 +13,7 @@ app.use(cors());
 app.use(expressSanitizer());
 
 
-app.get("/lookup/:name", (req, res) =>  {
+app.get("/lookup/namedotcom/:name", (req, res) =>  {
 
     const clientInputName=req.sanitize(req.params.name);
     
@@ -38,7 +38,6 @@ app.get("/lookup/:name", (req, res) =>  {
     fetch(url, options)
     .then(response => response.json())
     .then(json=> {
-        console.log(json);
         res.json(json);
     })
 
