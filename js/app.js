@@ -126,17 +126,13 @@ inputForm.addEventListener("submit", (e)=>{
 });
 
 
+function callback(data) {
+    document.getElementById("quote").innerText=data.quoteText;
+    document.querySelector("cite").innerText="-- "+data.quoteAuthor;
+}
+
+const script = document.createElement('script');
+script.src = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=callback';
+document.body.appendChild(script);
 
 
-(async()=>{
-   try{
-        const quoteRespons = await fetch("https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json");
-        const quote = await quoteRespons.json();
-        document.getElementById("quote").innerText=quote.quoteText;
-        document.querySelector("cite").innerText="-- "+quote.quoteAuthor;
-    }
-    catch(error){
-        console.error("Quote API is a bit tired at the moment");
-    }
-   
-})();
