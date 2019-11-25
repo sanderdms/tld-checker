@@ -27,6 +27,9 @@ const renderFromTemplate = (templateNode, targetNode, querySelectorValues) => {
             case "src":
             newNode.querySelector(_nodeItem.selector).src=_nodeItem.value;
             break;
+            case "href":
+                newNode.querySelector(_nodeItem.selector).href=_nodeItem.value;
+                break;
             case "innerText":
             newNode.querySelector(_nodeItem.selector).innerText=_nodeItem.value;
             break;
@@ -87,7 +90,9 @@ const displayResults = (lookup_results, userInput)=>{
             const nodes = [
                 nodeItem("#tld", "innerText","."+item.tld),
                 nodeItem("#sld", "innerText", item.sld),
-                nodeItem("#price","innerText","$"+item.purchasePrice)
+                nodeItem("#price","innerText","$"+item.purchasePrice),
+                nodeItem("#button","href","https://www.name.com/domain/search/"+item.sld+"."+item.tld),
+
             ];
             renderFromTemplate(template_resultItem, app_view, nodes);
         })
