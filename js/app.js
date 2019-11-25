@@ -95,7 +95,7 @@ const appendUI = (lookup_results, userInput)=>{
 }
 
 const getDomainStatus = async (userInput)=>{
-    const url = "https://server.sanderdms.now.sh/lookup/namedotcom/" + userInput;
+    const url = "http://localhost:5000/lookup/namedotcom/" + userInput;
     try{
         const callNameAPI = await fetch(url);
         const callNameAPI_response = await callNameAPI.json();
