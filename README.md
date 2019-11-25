@@ -1,6 +1,5 @@
-Purpose is to find what domain TLDS are available on an exact given name. And for what price.
+Purpose is to find what domain TLDS are available and for what price on any exact given name.
 
-This is not a domain transfer or WHOIS service !!
 
 ## Setup API server
 An API proxy is required to run this application.
