@@ -126,13 +126,11 @@ inputForm.addEventListener("submit", (e)=>{
 });
 
 
-function callback(data) {
+const displayQuote = (data)=> {
     document.getElementById("quote").innerText=data.quoteText;
     document.querySelector("cite").innerText="-- "+data.quoteAuthor;
 }
 
 const script = document.createElement('script');
-script.src = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=callback';
+script.src = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=displayQuote';
 document.body.appendChild(script);
-
-
