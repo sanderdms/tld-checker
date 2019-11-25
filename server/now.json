@@ -1,0 +1,9 @@
+{
+    "build": {
+      "env": {
+        "NAME_COM_API_TOKEN": "@api-token",
+        "NAME_COM_API_USER": "@api-user",
+        "NAME_COM_ENDPOINT": "https://api.name.com/v4/domains:search"
+      }
+    }
+  }

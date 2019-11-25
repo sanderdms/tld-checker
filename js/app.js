@@ -73,7 +73,7 @@ const filter_domainNameMatch = (needle, item) =>{
 const sort_priceLowHigh = (a, b) => parseFloat(a.purchasePrice) - parseFloat(b.purchasePrice);
 
 
-const displayResults = (lookup_results, userInput)=>{
+const appendUI = (lookup_results, userInput)=>{
     const availableDomains = lookup_results
     .filter(filter_nameAvailable)
     .filter(filter_domainNameMatch.bind(this, userInput))
@@ -101,7 +101,7 @@ const getDomainStatus = async (userInput)=>{
         const callNameAPI_response = await callNameAPI.json();
         if(!callNameAPI_response.results)throw callNameAPI_response.message + ": "+ callNameAPI_response.details;
         clear_area();
-        displayResults(callNameAPI_response.results, userInput);
+        appendUI(callNameAPI_response.results, userInput);
     }
     catch(error){
         renderEmptyMessageState(true, "Something went wrong.", true);
