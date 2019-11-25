@@ -2,11 +2,13 @@
   "name": "tld-checker",
   "version": "1.0.0",
   "private": true,
-  "description": "https://developer.godaddy.com/doc/endpoint/domains#/v1/tlds https://support.combell.com/en/how-do-i-use-e-resellers-api/689",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "lite-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "npm run start --prefix server",
+    "dev": "npm-run-all --parallel start server",
+    "tailwind":"npx tailwind build styles/tw_style.css -o styles/style.css"
   },
   "repository": {
     "type": "git",
@@ -19,9 +21,11 @@
     "url": "https://github.com/sanderdms/tld-checker/issues"
   },
   "homepage": "https://github.com/sanderdms/tld-checker#readme",
-  "devDependencies": {},
-  "dependencies": {
+  "devDependencies": {
     "lite-server": "^2.5.4",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
     "tailwindcss": "^1.1.3"
   }
 }

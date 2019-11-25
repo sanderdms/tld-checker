@@ -73,7 +73,7 @@ const filter_domainNameMatch = (needle, item) =>{
 const sort_priceLowHigh = (a, b) => parseFloat(a.purchasePrice) - parseFloat(b.purchasePrice);
 
 
-const appendUI = (lookup_results, userInput)=>{
+const displayResults = (lookup_results, userInput)=>{
     const availableDomains = lookup_results
     .filter(filter_nameAvailable)
     .filter(filter_domainNameMatch.bind(this, userInput))
@@ -95,13 +95,13 @@ const appendUI = (lookup_results, userInput)=>{
 }
 
 const getDomainStatus = async (userInput)=>{
-    const url = "http://localhost:5000/lookup/namedotcom/" + userInput;
+    const url = "https://server.sanderdms.now.sh/lookup/namedotcom/" + userInput;
     try{
         const callNameAPI = await fetch(url);
         const callNameAPI_response = await callNameAPI.json();
         if(!callNameAPI_response.results)throw callNameAPI_response.message + ": "+ callNameAPI_response.details;
         clear_area();
-        appendUI(callNameAPI_response.results, userInput);
+        displayResults(callNameAPI_response.results, userInput);
     }
     catch(error){
         renderEmptyMessageState(true, "Something went wrong.", true);
@@ -126,17 +126,11 @@ inputForm.addEventListener("submit", (e)=>{
 });
 
 
+const displayQuote = (data)=> {
+    document.getElementById("quote").innerText=data.quoteText;
+    document.querySelector("cite").innerText="-- "+data.quoteAuthor;
+}
 
-
-(async()=>{
-   try{
-        const quoteRespons = await fetch("https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json");
-        const quote = await quoteRespons.json();
-        document.getElementById("quote").innerText=quote.quoteText;
-        document.querySelector("cite").innerText="-- "+quote.quoteAuthor;
-    }
-    catch(error){
-        console.error("Quote API is a bit tired at the moment");
-    }
-   
-})();
+const script = document.createElement('script');
+script.src = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=displayQuote';
+document.body.appendChild(script);
