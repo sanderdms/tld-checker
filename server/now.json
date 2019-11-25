@@ -1,9 +1,17 @@
 {
-    "build": {
-      "env": {
-        "NAME_COM_API_TOKEN": "@api-token",
-        "NAME_COM_API_USER": "@api-user",
-        "NAME_COM_ENDPOINT": "https://api.name.com/v4/domains:search"
-      }
+  "version": 2,
+  "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+  "routes": [
+    {
+      "src": "/lookup/namedotcom/(.*)",
+      "dest": "/index.js?name=$1",
+      "methods": ["GET"]
     }
+  ],
+"env": {
+    "NAME_COM_API_TOKEN": "@api-token",
+    "NAME_COM_API_USER": "@api-user",
+    "NAME_COM_ENDPOINT": "https://api.name.com/v4/domains:search"
+      }
+    
   }
