@@ -8,9 +8,9 @@ Create account https://name.com/account/settings/api
 Create a new .env file using the .env.sample template. Enter API username, key and endpoint in the .env file...
 Run the API server:
 
-    $ cd server
+    $ npm install
 
-    $npm run dev
+    $ npm run dev
 
 
 # Todo
