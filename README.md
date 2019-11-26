@@ -8,6 +8,10 @@ Original exercise files: [_becode_copy](https://github.com/sanderdms/tld-checker
 
 Purpose is to find what domain TLDS are available and for what price on any exact given name.
 
+## API's used
+- https://www.name.com/api_about
+- https://forismatic.com/en/api/
+
 ## Development 
 ### Setup API proxy
 An API proxy is required to run this application.
@@ -43,6 +47,6 @@ API proxy deployed using Zeit Now. Front-end hosted on Github Pages.
 - [ ] Add datasrouces for checking more TLD's
 - [ ] Style / UX (empathise TLD label and registrar provider)
 - [ ] Error handling when offline
-- [ ] Add webpack
+- [ ] Add webpack and dev/staging/production pipeline
 - [ ] add support for lookups using specific tld (allow searching with .tld)
 
