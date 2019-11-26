@@ -1,6 +1,14 @@
+# TLD CHECKER
+
+Made by @sanderdms<br>
+Made for educational purpose [@becodeorg](https://github.com/becodeorg)
+
+Original exercise files: [_becode_copy](https://github.com/sanderdms/tld-checker/blob/master/_becode_copy)
+
+
 Purpose is to find what domain TLDS are available and for what price on any exact given name.
 
-
+## Development 
 ### Setup API proxy
 An API proxy is required to run this application.
 
@@ -17,12 +25,16 @@ Run the following commands from the root directory of this repository:
 
     $ npm run dev
 
+## Production
+API proxy deployed using Zeit Now. Front-end hosted on Github Pages.
 
-### Todo
+## Todo
 - [ ] Get  renewal prices
 - [ ] Add caching middleware into proxy API
-- [ ] Store previous successful queries in localstorage (only the query not perse results)
+- [ ] Remember lookups
 - [ ] Add datasrouces for checking more TLD's
 - [ ] Style / UX
 - [ ] Error handling when offline
+- [ ] Add webpack
+- [ ] add support for lookups using specific tld (allow searching with .tld)
 

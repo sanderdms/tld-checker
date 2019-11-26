@@ -28,8 +28,8 @@ const renderFromTemplate = (templateNode, targetNode, querySelectorValues) => {
             newNode.querySelector(_nodeItem.selector).src=_nodeItem.value;
             break;
             case "href":
-                newNode.querySelector(_nodeItem.selector).href=_nodeItem.value;
-                break;
+            newNode.querySelector(_nodeItem.selector).href=_nodeItem.value;
+            break;
             case "innerText":
             newNode.querySelector(_nodeItem.selector).innerText=_nodeItem.value;
             break;

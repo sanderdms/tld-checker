@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "nodemon index.js"
+    "build": "nodemon index.js",
+    "zeit_dev": "now dev"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.0"
+    "nodemon": "^2.0.0",
+    "now": "^16.6.0"
   }
 }
